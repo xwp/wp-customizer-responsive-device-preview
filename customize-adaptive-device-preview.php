@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Customize Adaptive Device Preview for Server-Side Components
- * Description: Extends the responsive device preview in customizer with device preview for adaptive themes (that is, RESS, or Responsive Web Design + Server-Side Components). This plugin will cause the preview to refresh with a <code>customize_previewed_device</code> query param whenever the previewed device is changed, and the <code>HTTP_USER_AGENT</code> will then be overridden so that server-side components for the device can be previewed. Works with <code>wp_is_mobile()</code>, <code>jetpack_is_mobile()</code>, and <code>Jetpack_User_Agent_Info::is_tablet()</code>.
+ * Description: Extend responsive preview in the customizer with adaptive previewing, ensuring the previewed device's user agent is set when the site refreshes.
  * Version: 0.1.0
  * Author: Weston Ruter, XWP
  * Author URI: https://make.xwp.co/
