@@ -24,7 +24,15 @@ var CustomizeAdaptivePreview = ( function( $ ) {
 	 * @returns {void}
 	 */
 	component.ready = function ready() {
-		component.api.previewer.previewUrl.setter( component.amendUrlWithPreviewedDevice );
+		var originalPreviewUrlValidate;
+		originalPreviewUrlValidate = component.api.previewer.previewUrl.validate;
+		component.api.previewer.previewUrl.validate = function validatePreviewUrl( newUrl ) {
+			var url = newUrl;
+			if ( null !== url ) {
+				url = component.amendUrlWithPreviewedDevice( url );
+			}
+			return originalPreviewUrlValidate.call( this, url );
+		};
 		component.api.previewedDevice.bind( function() {
 			var url = component.amendUrlWithPreviewedDevice( component.api.previewer.previewUrl.get() );
 			component.api.previewer.previewUrl.set( url );
