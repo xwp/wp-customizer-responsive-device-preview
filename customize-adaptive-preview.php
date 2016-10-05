@@ -83,25 +83,3 @@ function filter_jetpack_is_mobile( $matches, $kind, $return_agent ) {
 	}
 	return $matches;
 }
-
-/**
- * Get current device.
- *
- * Obtain the device that is being used, whether by customizer preview or by device user agent.
- *
- * @return string Device.
- */
-function get_current_device() {
-	$previewed_device = 'desktop';
-
-	if ( class_exists( 'Jetpack_User_Agent_Info' ) ) {
-		if ( \Jetpack_User_Agent_Info::is_tablet() ) {
-			$previewed_device = 'tablet';
-		} elseif ( jetpack_is_mobile() ) {
-			$previewed_device = 'mobile';
-		}
-	} elseif ( wp_is_mobile() ) {
-		$previewed_device = 'mobile';
-	}
-	return $previewed_device;
-}
