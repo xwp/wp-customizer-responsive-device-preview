@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name: Customize Device Preview for RESS (Responsive Web Design + Server-Side Components)
- * Description: Replace responsive device preview in customizer with RESS device preview, refreshing preview with query param indicating the device being previewed so that server-side components for the device can be previewed.
+ * Plugin Name: Customize Adaptive Device Preview for Server-Side Components
+ * Description: Extends the responsive device preview in customizer with device preview for adaptive themes (that is, RESS, or Responsive Web Design + Server-Side Components). This plugin will cause the preview to refresh with a <code>customize_previewed_device</code> query param whenever the previewed device is changed, and the <code>HTTP_USER_AGENT</code> will then be overridden so that server-side components for the device can be previewed. Works with <code>wp_is_mobile()</code>, <code>jetpack_is_mobile()</code>, and <code>Jetpack_User_Agent_Info::is_tablet()</code>.
  * Version: 0.1.0
- * Author: XWP
+ * Author: Weston Ruter, XWP
  * Author URI: https://make.xwp.co/
  *
  * Copyright (c) 2016 XWP (https://make.xwp.co/)
@@ -25,7 +25,7 @@
  * @package Customize_Adaptive_Preview
  */
 
-namespace Customize_Adaptive_Preview;
+namespace Customize_Adaptive_Device_Preview;
 
 const DESKTOP_USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36';
 const MOBILE_USER_AGENT = 'Mozilla/5.0 (Linux; Android 5.1.1; Nexus 6 Build/LYZ28E) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.23 Mobile Safari/537.36';
@@ -59,17 +59,19 @@ function customize_controls_enqueue_scripts() {
 	if ( preg_match( '/Version:\s*(\S+)/', file_get_contents( __FILE__ ), $matches ) ) {
 		$version = $matches[1];
 	}
-	$handle = 'customize-adaptive-preview-controls';
-	$src = plugin_dir_url( __FILE__ ) . '/customize-adaptive-preview-controls.js';
+	$handle = 'customize-adaptive-device-preview';
+	$src = plugin_dir_url( __FILE__ ) . '/customize-adaptive-device-preview.js';
 	$deps = array( 'customize-controls' );
 	wp_enqueue_script( $handle, $src, $deps, $version );
-	wp_add_inline_script( $handle, 'CustomizeAdaptivePreview.init( wp.customize );', 'after' );
+	wp_add_inline_script( $handle, 'CustomizeAdaptiveDevicePreview.init( wp.customize );', 'after' );
 }
 
 /**
  * Filter the value of jetpack_is_mobile before it is calculated.
  *
- * This is needed because the jetpack_is_mobile function sets
+ * This is needed because the jetpack_is_mobile() function sets a static var when
+ * it first runs, and so if jetpack_is_mobile() gets called before this plugin is
+ * loaded, then the overriding of the HTTP_USER_AGENT will have no effect.
  *
  * @param bool|string $matches      Boolean if current UA matches $kind or not. If $return_matched_agent is true, should return the UA string.
  * @param string      $kind         Category of mobile device being checked.

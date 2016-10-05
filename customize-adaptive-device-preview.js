@@ -1,6 +1,6 @@
 /* global jQuery */
-/* exported CustomizeAdaptivePreview */
-var CustomizeAdaptivePreview = ( function( $ ) {
+/* exported CustomizeAdaptiveDevicePreview */
+var CustomizeAdaptiveDevicePreview = ( function( $ ) {
 
 	var component = {
 		api: null
