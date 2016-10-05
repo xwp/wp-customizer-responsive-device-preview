@@ -1,7 +1,7 @@
 <?php
 /**
- * Plugin Name: Customize Adaptive Device Preview for Server-Side Components
- * Description: Extend responsive preview in the customizer with adaptive previewing, ensuring the previewed device's user agent is set when the site refreshes.
+ * Plugin Name: Customizer Responsive Server-Side Components Device Preview
+ * Description: Extend device preview in customizer with previewing server-side components, ensuring the previewed device's user agent is set when the site refreshes
  * Version: 0.1.0
  * Author: Weston Ruter, XWP
  * Author URI: https://make.xwp.co/
@@ -22,10 +22,10 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
  *
- * @package Customize_Adaptive_Preview
+ * @package Customizer_Responsive_Device_Preview
  */
 
-namespace Customize_Adaptive_Device_Preview;
+namespace Customizer_Responsive_Device_Preview;
 
 const DESKTOP_USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36';
 const MOBILE_USER_AGENT = 'Mozilla/5.0 (Linux; Android 5.1.1; Nexus 6 Build/LYZ28E) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.23 Mobile Safari/537.36';
@@ -59,11 +59,11 @@ function customize_controls_enqueue_scripts() {
 	if ( preg_match( '/Version:\s*(\S+)/', file_get_contents( __FILE__ ), $matches ) ) {
 		$version = $matches[1];
 	}
-	$handle = 'customize-adaptive-device-preview';
-	$src = plugin_dir_url( __FILE__ ) . '/customize-adaptive-device-preview.js';
+	$handle = 'customizer-responsive-device-preview';
+	$src = plugin_dir_url( __FILE__ ) . '/customizer-responsive-device-preview.js';
 	$deps = array( 'customize-controls' );
 	wp_enqueue_script( $handle, $src, $deps, $version );
-	wp_add_inline_script( $handle, 'CustomizeAdaptiveDevicePreview.init( wp.customize );', 'after' );
+	wp_add_inline_script( $handle, 'CustomizerResponsiveDevicePreview.init( wp.customize );', 'after' );
 }
 
 /**

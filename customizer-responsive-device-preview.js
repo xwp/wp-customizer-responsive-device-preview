@@ -1,6 +1,6 @@
 /* global jQuery */
-/* exported CustomizeAdaptiveDevicePreview */
-var CustomizeAdaptiveDevicePreview = ( function( $ ) {
+/* exported CustomizerResponsiveDevicePreview */
+var CustomizerResponsiveDevicePreview = ( function( $ ) {
 
 	var component = {
 		api: null
@@ -79,4 +79,4 @@ var CustomizeAdaptiveDevicePreview = ( function( $ ) {
 
 	return component;
 
-} ( jQuery ));
+}( jQuery ) );

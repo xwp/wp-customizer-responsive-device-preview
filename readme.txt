@@ -1,4 +1,4 @@
-=== Customize Adaptive Device Preview for Server-Side Components ===
+=== Customizer Responsive Server-Side Components Device Preview ===
 Contributors:      xwp, westonruter
 Tags:              customizer, customize, responsive, rwd, adaptive, ress, preview
 Requires at least: 4.5
@@ -7,7 +7,7 @@ Stable tag:        0.1.0
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 
-Extend responsive preview in the customizer with adaptive previewing, ensuring the previewed device's user agent is set when the site refreshes.
+Extend device preview in customizer with previewing server-side components, ensuring the previewed device's user agent is set when the site refreshes
 
 == Description ==
 
