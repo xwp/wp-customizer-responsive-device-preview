@@ -48,6 +48,7 @@ if ( isset( $_GET['customize_previewed_device'] ) ) {
 function init() {
 	add_action( 'customize_controls_enqueue_scripts', __NAMESPACE__ . '\customize_controls_enqueue_scripts' );
 	add_filter( 'jetpack_is_mobile', __NAMESPACE__ . '\filter_jetpack_is_mobile', 5, 3 );
+	add_action( 'customize_controls_init', __NAMESPACE__ . '\set_preview_url' );
 }
 add_action( 'plugins_loaded', __NAMESPACE__ . '\init' );
 
@@ -84,4 +85,26 @@ function filter_jetpack_is_mobile( $matches, $kind, $return_agent ) {
 		$matches = $return_agent ? MOBILE_USER_AGENT : true;
 	}
 	return $matches;
+}
+
+
+/**
+ * Esure that previewed device is included in the previewed URL.
+ */
+function set_preview_url() {
+	global $wp_customize;
+
+	$previewed_device_name = null;
+	$previewed_devices = $wp_customize->get_previewable_devices();
+	foreach ( $previewed_devices as $device => $params ) {
+		if ( isset( $params['default'] ) && true === $params['default'] ) {
+			$previewed_device_name = $device;
+			break;
+		}
+	}
+
+	if ( $previewed_device_name ) {
+		$wp_customize->set_preview_url( add_query_arg( 'customize_previewed_device', $previewed_device_name, $wp_customize->get_preview_url() ) );
+	}
+
 }
