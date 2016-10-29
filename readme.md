@@ -18,6 +18,8 @@ This plugin extends the responsive device preview functionality in the customize
 
 This plugin will ensure that the preview is refreshed when the previewed device is changed in addition to changing the preview window size. It will pass a <code>customize_previewed_device</code> query parameter on the URL being previewed, and this parameter will be either <code>desktop</code>, <code>tablet</code>, or <code>mobile</code>. The plugin will override the <code>$_SERVER['HTTP_USER_AGENT']</code> to be a user agent representative of the supplied device type so that calls to <code>wp_is_mobile()</code>, <code>jetpack_is_mobile()</code>, and <code>Jetpack_User_Agent_Info::is_tablet()</code> will all return the expected values based on the current previewed device.
 
+**Development of this plugin is done [on GitHub](https://github.com/xwp/wp-customizer-responsive-device-preview). Pull requests welcome. Please see [issues](https://github.com/xwp/wp-customizer-responsive-device-preview/issues) reported there before going to the [plugin forum](https://wordpress.org/support/plugin/customizer-responsive-device-preview).**
+
 ## Changelog ##
 
 ### 0.1.0 [2016-10-05] ###
