@@ -106,5 +106,4 @@ function set_preview_url() {
 	if ( $previewed_device_name ) {
 		$wp_customize->set_preview_url( add_query_arg( 'customize_previewed_device', $previewed_device_name, $wp_customize->get_preview_url() ) );
 	}
-
 }
