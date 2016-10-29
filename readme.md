@@ -10,7 +10,7 @@ Extend device preview in customizer with previewing server-side components, ensu
 **Stable tag:** 0.1.0  
 **License:** [GPLv2 or later](http://www.gnu.org/licenses/gpl-2.0.html)  
 
-[![Build Status](https://travis-ci.org/xwp/wp-customize-adaptive-device-preview.svg?branch=master)](https://travis-ci.org/xwp/wp-customize-adaptive-device-preview) 
+[![Build Status](https://travis-ci.org/xwp/wp-customizer-responsive-device-preview.svg?branch=master)](https://travis-ci.org/xwp/wp-customizer-responsive-device-preview) 
 
 ## Description ##
 
