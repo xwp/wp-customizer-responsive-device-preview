@@ -9,6 +9,7 @@ Extend device preview in customizer with previewing server-side components, ensu
 **Tested up to:** 4.9  
 **Stable tag:** 0.1.0  
 **License:** [GPLv2 or later](http://www.gnu.org/licenses/gpl-2.0.html)  
+**Requires PHP:** 5.3  
 
 [![Build Status](https://travis-ci.org/xwp/wp-customizer-responsive-device-preview.svg?branch=master)](https://travis-ci.org/xwp/wp-customizer-responsive-device-preview) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.svg)](http://gruntjs.com) 
 
