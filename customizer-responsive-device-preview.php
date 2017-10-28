@@ -89,7 +89,7 @@ function filter_jetpack_is_mobile( $matches, $kind, $return_agent ) {
 
 
 /**
- * Esure that previewed device is included in the previewed URL.
+ * Ensure that previewed device is included in the previewed URL.
  */
 function set_preview_url() {
 	global $wp_customize;

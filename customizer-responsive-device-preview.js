@@ -1,6 +1,8 @@
 /* global jQuery */
 /* exported CustomizerResponsiveDevicePreview */
+/* eslint consistent-this: [ "error", "section" ], no-magic-numbers: [ "error", { "ignore": [1] } ] */
 var CustomizerResponsiveDevicePreview = ( function( $ ) {
+	'use strict';
 
 	var component = {
 		api: null
@@ -9,7 +11,7 @@ var CustomizerResponsiveDevicePreview = ( function( $ ) {
 	/**
 	 * Add callbacks to previewUrl and previewedDevice values.
 	 *
-	 * @params {object} api Instance of wp.customize.
+	 * @param {object} api Instance of wp.customize.
 	 * @returns {void}
 	 */
 	component.init = function init( api ) {
@@ -20,7 +22,6 @@ var CustomizerResponsiveDevicePreview = ( function( $ ) {
 	/**
 	 * Add callbacks to previewUrl and previewedDevice values.
 	 *
-	 * @params {object} api Instance of wp.customize.
 	 * @returns {void}
 	 */
 	component.ready = function ready() {
@@ -40,28 +41,6 @@ var CustomizerResponsiveDevicePreview = ( function( $ ) {
 	};
 
 	/**
-	 * Parse query string.
-	 *
-	 * @param {string} queryString Query string.
-	 * @returns {object}
-	 */
-	component.parseQueryString = function parseQueryString( queryString ) {
-		var queryParams = {};
-		_.each( queryString.split( '&' ), function( pair ) {
-			var parts, name, value = null;
-			parts = pair.split( '=', 2 );
-			if ( parts[0] ) {
-				name = decodeURIComponent( parts[0] );
-				if ( ! _.isUndefined( parts[1] ) ) {
-					value = decodeURIComponent( parts[1] );
-				}
-				queryParams[ name ] = value;
-			}
-		} );
-		return queryParams;
-	};
-
-	/**
 	 * Amend the given URL with a customize_previewed_device query parameter.
 	 *
 	 * @param {string} url URL.
@@ -71,7 +50,7 @@ var CustomizerResponsiveDevicePreview = ( function( $ ) {
 		var urlParser, queryParams;
 		urlParser = document.createElement( 'a' );
 		urlParser.href = url;
-		queryParams = component.parseQueryString( urlParser.search.substr( 1 ) );
+		queryParams = component.api.utils.parseQueryString( urlParser.search.substr( 1 ) );
 		queryParams.customize_previewed_device = component.api.previewedDevice.get();
 		urlParser.search = $.param( queryParams );
 		return urlParser.href;
@@ -79,4 +58,4 @@ var CustomizerResponsiveDevicePreview = ( function( $ ) {
 
 	return component;
 
-}( jQuery ) );
+} )( jQuery );

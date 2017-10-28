@@ -5,8 +5,8 @@ Extend device preview in customizer with previewing server-side components, ensu
 
 **Contributors:** [xwp](https://profiles.wordpress.org/xwp), [westonruter](https://profiles.wordpress.org/westonruter)  
 **Tags:** [customizer](https://wordpress.org/plugins/tags/customizer), [customize](https://wordpress.org/plugins/tags/customize), [responsive](https://wordpress.org/plugins/tags/responsive), [rwd](https://wordpress.org/plugins/tags/rwd), [adaptive](https://wordpress.org/plugins/tags/adaptive), [ress](https://wordpress.org/plugins/tags/ress), [preview](https://wordpress.org/plugins/tags/preview)  
-**Requires at least:** 4.5  
-**Tested up to:** 4.7-beta1  
+**Requires at least:** 4.7  
+**Tested up to:** 4.9  
 **Stable tag:** 0.1.0  
 **License:** [GPLv2 or later](http://www.gnu.org/licenses/gpl-2.0.html)  
 
