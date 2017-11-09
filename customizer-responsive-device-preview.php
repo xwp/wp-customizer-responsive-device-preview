@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Customizer Responsive Server-Side Components Device Preview
  * Description: Extend device preview in customizer with previewing server-side components, ensuring the previewed device's user agent is set when the site refreshes
- * Version: 0.1.0
+ * Version: 0.1.1
  * Author: Weston Ruter, XWP
  * Author URI: https://make.xwp.co/
  *
@@ -89,7 +89,7 @@ function filter_jetpack_is_mobile( $matches, $kind, $return_agent ) {
 
 
 /**
- * Esure that previewed device is included in the previewed URL.
+ * Ensure that previewed device is included in the previewed URL.
  */
 function set_preview_url() {
 	global $wp_customize;

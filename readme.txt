@@ -1,11 +1,12 @@
 === Customizer Responsive Server-Side Components Device Preview ===
 Contributors:      xwp, westonruter
 Tags:              customizer, customize, responsive, rwd, adaptive, ress, preview
-Requires at least: 4.5
-Tested up to:      4.7-beta1
-Stable tag:        0.1.0
+Requires at least: 4.7
+Tested up to:      4.9
+Stable tag:        0.1.1
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
+Requires PHP:      5.3
 
 Extend device preview in customizer with previewing server-side components, ensuring the previewed device's user agent is set when the site refreshes
 
@@ -20,6 +21,13 @@ This plugin will ensure that the preview is refreshed when the previewed device 
 **Development of this plugin is done [on GitHub](https://github.com/xwp/wp-customizer-responsive-device-preview). Pull requests welcome. Please see [issues](https://github.com/xwp/wp-customizer-responsive-device-preview/issues) reported there before going to the [plugin forum](https://wordpress.org/support/plugin/customizer-responsive-device-preview).**
 
 == Changelog ==
+
+= 0.1.1 [2017-11-01] =
+
+* Update minimum required version of WordPress to 4.7.
+* Re-use `parseQueryString` from core.
+* Explicitly require PHP 5.3.
+* Clean up JS, upgrade dev-lib.
 
 = 0.1.0 [2016-10-05] =
 
